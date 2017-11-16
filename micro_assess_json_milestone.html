@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>Microeconomics Assessment</title>
+<script>
+var k=-1;
+var lbl = [" a)"," b)"," c)"," d)"," e)"];
+var scramble =[[0,1,2,3],[1,2,3,0],[2,3,0,1],[3,0,1,2],[1,0,2,3],[1,0,3,2],[2,1,0,3],[2,1,3,0],[3,2,0,1],[3,2,1,0]];
+var dx = ["","","","","",""];
+var cx = ["","","","","",""];
+var correct = [0,3,2,1,1,1,2,3,2,3];
+var total_correct = 0;
+var total_incorrect = 0;
+//  
+var a_data = {"questions":[{"concept":"The Accelerator","definition":" A parameter that defines the relationship between national income and required capital stock."},
+{"concept":"An Asset","definition":" Anything of value owned by an individual, institution or economic agent."},
+{"concept":"Autonomous Expenditure","definition":" Expenditure that takes place independent of national income."},
+{"concept":"A Bond","definition":" A long term (10+ years) debt instrument."},
+{"concept":"Business Inventories","definition":" Additions or deletions to existing inventory levels in response to economic conditions (a flow variable)."},
+{"concept":"Business Cycle ","definition":" An economic contraction (recession) followed by an expansion."},
+{"concept":"Capital Gain ","definition":" A positive difference between the sale price of an asset and its purchase price."},
+{"concept":"Capital Loss ","definition":" A negative difference between the sale price of an asset and its purchase price."},
+{"concept":"Constant Returns to Scale (CRS)","definition":"A long run production concept where a doubling of all factor inputs exactly doubles the amount of output."},
+{"concept":"Consumer","definition":" An economic agent that desires to purchase goods and services with the goal of maximizing the satisfaction (utility) from consumption of those goods and services."},
+{"concept":"Consumer Price Index (CPI)","definition":" A weighted average of the prices of a representative market basket of goods and services that represents consumption patterns in some base time period."},
+{"concept":"Cyclical Unemployment","definition":" Changes in unemployment attributed to cyclical behavior in economic activity."},
+{"concept":"Deflation","definition":" A decline in the aggregate price level over some defined time period."},
+{"concept":"Demand","definition":" A relationship between market price and quantities of goods and services purchased in a given period of time."},
+{"concept":"Depreciation","definition":" A measure of the wear and tear that affects capital equipment or other intermediate goods."},
+{"concept":"Diminishing Marginal Productivity (DMP)","definition":"A short run production concept where increases in the variable factor of production lead to less and less additional output."},
+{"concept":"Direct Finance","definition":"The transfer of loanable funds through the use of capital markets (i.e., the Stock and Bond markets) usually facilitated by investment banks."},
+{"concept":"Disinflation","definition":" A decline in the overall rate of inflation. Prices are still rising but by a smaller amount relative to previous time periods."},
+{"concept":"Disintermediation","definition":" The removal of funds from a financial intermediary (a bank or other depository institution)."},
+{"concept":"Disposable Personal Income","definition":"Personal Income less taxes paid."},
+{"concept":"Durable Goods","definition":" Goods that deliver consumption services over an extended period of time."},
+{"concept":"Economic Expansion","definition":" Growth in Real GDP for one fiscal quarter or more."},
+{"concept":"Economics","definition":" The study of how a given society allocates scarce resources to meet (or satisfy) the unlimited wants and need of its members."},
+{"concept":"Employment","definition":" A measure of those individuals in the labor force working, at least one hour per week, for pay."},
+{"concept":"Equilibrium","definition":" A situation where there is no tendency for change."},
+{"concept":"Exchange Rate","definition":" The value of a domestic currency expressed in terms of a foreign currency or basket of foreign currencies."},
+{"concept":"Factors of Production","definition":" An exhaustive list of inputs required for any type of production."},
+{"concept":"Financial Intermediation","definition":" A form of indirect finance where an institution (a bank) acts as an intermediary to reduce transactions costs and facilitate borrowing and lending."},
+{"concept":"Final Goods and Services","definition":" Goods and services that are purchased for direct consumption."},
+{"concept":"Fixed nonresidential Investment","definition":" Additions to the existing stock of plant and equipment used in the production of goods and services."},
+{"concept":"Fixed Residential Investment","definition":" Additions to the existing stock of housing used to provide housing services."},
+{"concept":"Flow Variable ","definition":" A variable that is measured per unit of time."},
+{"concept":"Frictional Unemployment","definition":" Unemployment that exists as a natural consequence of market activity where individuals are in-between jobs."},
+{"concept":"GDP","definition":"Gross Domestic Product -- The market value of all final goods and services produced in a given time period."},
+{"concept":"Gross Investment","definition":" Investment that includes additions to the capital stock as well a the replacement of depreciated capital."},
+{"concept":"Human Capital/Wealth","definition":" A measure of the skills, ability or productivity of human beings."},
+{"concept":"Implicit Price Deflator (IPD)","definition":" The ratio between Nominal GDP and Real GDP."},
+{"concept":"Income Producing Asset","definition":" An asset that is used to generate revenue from the production and sale of goods and services."},
+{"concept":"Indirect Business Taxes","definition":" Taxes that tend to be built into the price of a particular good (i.e., excise taxes)."},
+{"concept":"Income Taxes","definition":" Taxes that are based on and vary with personal or corporate income."},
+{"concept":"Indirect Finance","definition":" The transfer of loanable funds (deposits) through the use of financial intermediaries (commercial banks)."},
+{"concept":"Induced Expenditure","definition":" Changes in spending due to changes in (national) income. See the Marginal Propensity to Spend."},
+{"concept":"Inflation","definition":" An increase in the price level over some defined time period."},
+{"concept":"Interest Sensitivity of Investment","definition":" A measure of responsiveness of investment expenditure to changes to the (real) interest rate."},
+{"concept":"Interest Sensitivity of Money Demand","definition":" A measure of responsiveness of the demand for cash balances to changes in the (nominal) interest rate."},
+{"concept":"Intermediate Goods and Services","definition":" Goods (or services) used to produce other goods (i.e., capital equipment)."},
+{"concept":"Investment","definition":" Changes to the existing capital stock or business inventories."},
+{"concept":"Labor Force Participation Rate","definition":" The ratio of those in the labor force (the employed and unemployed) and those that are available for work."},
+{"concept":"Laspeyres Index","definition":" A weighted average of prices based on the use of base-period consumption patterns. Also known as the Consumer Price Index (CPI)."},
+{"concept":"Liquidity","definition":" A measure of the ease by which a financial asset can be converted into a form readily accepted as payment for goods and services."},
+{"concept":"Liquidity Premium","definition":" An adjustment to a real interest rate to compensate for the direct relationship between uncertainty and the duration of a debt contract."},
+{"concept":"M1","definition":" A narrow money supply measure that includes currency in circulation and the value of demand deposits."},
+{"concept":"M2","definition":" A broad money supply measure that includes currency, demand deposits, and the value of time deposits."},
+{"concept":"Marginal Propensity to Consume","definition":"The fraction of each additional dollar of income devoted to consumption expenditure."},
+{"concept":"Marginal Propensity to Spend","definition":" The fraction of each additional dollar of income devoted to any type of spending (i.e., consumption, investment, government, or net exports)."},
+{"concept":"Market","definition":" A place or institution where buyers and sellers come together and exchange factor inputs or final goods and services. A market is one of several types of economic rationing systems."},
+{"concept":"Money Market Instrument","definition":" A short term (less than 10 years) debt instrument."},
+{"concept":"Money Multiplier","definition":" The relationship between changes in the monetary base and the money supply."},
+{"concept":"Monetary Base","definition":"Also known as High-powered Money. Reserves + Currency in the monetary system, the main liabilities of the central bank."},
+{"concept":"National Income ","definition":" The sum of all types of income (wages, net interest, profits, and net rental income) earned in a given time period by any type of economic agent (individuals or corporation)."},
+{"concept":"Natural Rate of Unemployment","definition":" That rate of unemployment where there is neither upward nor downward pressure on prices."},
+{"concept":"Net Investment ","definition":" Investment exclusive of replacement of depreciated capital."},
+{"concept":"Nominal GDP","definition":"GDP measured at current prices."},
+{"concept":"Nominal Interest Rate ","definition":" The interest rate published as part of a debt contract."},
+{"concept":"Non-Durable Goods","definition":"Goods that tend to be immediately consumed or deliver consumption services over a short period of time."},
+{"concept":"Non-Income Producing Asset","definition":"Something of value that does not generate any income or revenue stream."},
+{"concept":"Normal (Current) Yield","definition":" The ratio between the annual income generated by an asset and its purchase price. Also known as the present value of a perpetuity."},
+{"concept":"Paasche Index ","definition":" A weighted average of prices based on current expenditure patterns. Also known as the GDP (or Implicit Price) Deflator."},
+{"concept":"Peak","definition":" A point of transition in the business cycle from expansion to contraction."},
+{"concept":"Permanent Income ","definition":" Expected levels of individual income that guide consumption expenditure decisions."},
+{"concept":"Personal Income ","definition":" The income earned by individual households in a given time period."},
+{"concept":"the Phillips Curve","definition":" A theoretical relationship between the unemployment rate of a given economy and rates of (wage) inflation."},
+{"concept":"Potential Output","definition":" A measure of the economy's ability to produce goods and services."},
+{"concept":"Present Value","definition":" The value of a future payment or stream of payments discounted by some appropriate rate of interest."},
+{"concept":"Primary Stock/Bond Market ","definition":"The market where new shares of stock or new bonds are bought and sold. Activity in this market represents direct finance where actual borrowing and lending activity takes place."},
+{"concept":"Producer","definition":" An economic agent that converts inputs (factors of production) into output (goods and services) with the goal of maximizing profits from production and sale of those goods and services."},
+{"concept":"Profits","definition":" The difference between sales revenue and the costs of production."},
+{"concept":"The Quantity Equation","definition":" Also known as the Equation of Exchange, an identity relating the amount of money in circulation to the price level and level of output in an aggregate economy."},
+{"concept":"Rate of Time Preference","definition":" The equivalent of a personal interest (or discount) rate. The measure by which individuals compare current and future economic activity."},
+{"concept":"Real GDP","definition":" GDP measured at constant (some base period) prices."},
+{"concept":"Real Interest Rate","definition":" An interest rate that has been adjusted for changes in the price level or changes in purchasing power over some time period."},
+{"concept":"Recession","definition":"Negative growth in Real GDP for two or more fiscal quarters."},
+{"concept":"Relative Price","definition":" A ratio of any two prices or one particular price compared to a price index."},
+{"concept":"Risk","definition":" A measure of uncertainty about the value of an asset or the benefits of some economic activity."},
+{"concept":"Risk Premium","definition":" An adjustment to a real interest rate to compensate for uncertainty in the ability of a borrower to service a loan."},
+{"concept":"Savings","definition":" The difference between income and expenditure in the current time period."},
+{"concept":"Scarcity","definition":" A physical or economic condition where the quantity desired of a good or service exceeds the availability of that good or service in the absence of a rationing system."},
+{"concept":"Stagnation","definition":" An economic condition where an economy is facing relatively high rates of inflation, little or no growth, and high unemployment."},
+{"concept":"Secondary Stock/Bond Market ","definition":" The market where existing shares of stock or existing bonds are traded. This market provides liquidity to these types of financial assets."},
+{"concept":"A Share of Stock","definition":"A financial instrument that give the holder a share of ownership in a publicly held corporation."},
+{"concept":"Shortage","definition":" A market condition where the quantity demanded of a particular good or service exceed the quantity available."},
+{"concept":"Speculation","definition":" The purchase of a good or asset not intended for final consumption but rather in the expectation of future sale at some higher price."},
+{"concept":"Spending Multiplier","definition":" The relationship between an autonomous spending shock and eventual changes in aggregate income."},
+{"concept":"Standard of Living","definition":"The ratio of the output of an economy and population. Also known as per-capita output."},
+{"concept":"Stock Variable","definition":" A variable measured at point in time."},
+{"concept":"Structural Unemployment","definition":" Unemployment that exists as a consequence of structural changes in economic activity."},
+{"concept":"Supply","definition":" A relationship between market price and quantities of goods and services made available for sale in a given period of time."},
+{"concept":"Surplus","definition":" A market condition where the quantity supplied exceeds the quantity demanded."},
+{"concept":"Transitory Income ","definition":" Unexpected changes or shocks to individual income. Often measured as the difference between observed income and permanent income."},
+{"concept":"Trough","definition":" A point of transition in the business cycle from contraction to expansion."},
+{"concept":"Unemployment","definition":" The difference between the number of people in the labor force and those working for pay."},
+{"concept":"Utility","definition":" A measure of the satisfaction received from some type of economic activity (i.e., consumption of goods and services or the sale of factor services)."},
+{"concept":"Velocity","definition":"The number of times a given quantity (stock) of money changes hands in a given time period (the ratio of expenditure in that time period to a given measure of the money supply)."},
+{"concept":"Yield","definition":" The ratio between the flow of returns (income, revenue, profits) generated by an asset and the purchase price of that asset."}]};
+//
+var b_data = {"questions":[{"concept":"Abundance","definition":"A physical or economic condition where the quantity available of a resource exceeds the quantity desired in the absence of a rationing system."},
+{"concept":"Budget Set","definition":"Different bundles of goods and services that are attainable to the consumer at given market prices and the consumer's fixed level of income."},
+{"concept":"Competition","definition":"The process of consumers bidding prices upwards or producers cutting prices in order to allow those agents to be involved in a market trade."},
+{"concept":"Complementary Goods","definition":"-A pair of goods where the quantity demanded of one increases when the price of a related good decreases."},
+{"concept":"Complete Preferences","definition":"The ability of a consumer to fully identify his/her preference for any combination or bundle of goods and services."},
+{"concept":"Constant Returns to Scale (CRS)","definition":"A long run production concept where a doubling of all factor inputs exactly doubles the amount of output."},
+{"concept":"Consumer (household)","definition":"An economic agent that desires to purchase goods and services with the goal of maximizing the satisfaction from consumption of those goods and services."},
+{"concept":"Consumer Optimum","definition":"Identification of an attainable bundle of goods that maximizes a consumer's level of satisfaction given his/her level of income and market prices."},
+{"concept":"Consumer's Surplus","definition":"The difference between what a consumer is willing to pay for each unit of a commodity consumed and the price actually paid."},
+{"concept":"Cross-Price Elasticity of Demand","definition":"A measure of sensitivity in the quantity demanded of one goods in reaction to changes in the price of a related good."},
+{"concept":"Decreasing Returns to Scale (DRS)","definition":"A long run production concept where a doubling of all factor inputs results in less than double the amount of output."},
+{"concept":"Demand","definition":"A relationship between market price and quantities of goods and services purchased in a given period of time. Represents the behavior of buyers in the market place."},
+{"concept":"Diminishing Marginal Productivity (DMP)","definition":"A short run production concept where increases in the variable factor of production lead to less and less additional output."},
+{"concept":"Diminishing Marginal Utility (DMU)","definition":"An economic concept that refers to the notion that additional units consumed of a particular commodity provide less and less additional satisfaction relative to previous units consumed."},
+{"concept":"Dominant Strategy","definition":"A game theoretic outcome where the choice of one player is the same independent of choices made by other players in the game."},
+{"concept":"Economic Agent","definition":"A decision maker involved in any type of economic activity."},
+{"concept":"Economics","definition":" The study of how a given society allocates scarce resources to meet the unlimited wants and need of its members."},
+{"concept":"Edgeworth Box","definition":"An analytical tool used to study the behavior of two economic agents based on preferences for goods and services when production of those goods is held constant."},
+{"concept":"Efficiency","definition":"A situation in the allocation of resources where the benefits of consuming one more unit exactly equal the (social and private) costs or producing that good."},
+{"concept":"Equilibrium","definition":"A condition where there is no tendency for an economic variable to change."},
+{"concept":"Expenditure","definition":"The amount spent by a consumer on a bundle of goods or services (the product of market price and quantity demanded)."},
+{"concept":"Factors of Production","definition":"An exhaustive list of inputs required for any type of production."},
+{"concept":"Factor Prices","definition":"The payments made to the factors of production (rents, wages, interest, and profits)."},
+{"concept":"Final Goods and Services","definition":"Goods and services that are purchased for direct consumption."},
+{"concept":"Fixed Costs of Production","definition":"Those costs of production that are independent of production levels in the short run."},
+{"concept":"Flow Variable ","definition":"A variable that is measured per unit of time."},
+{"concept":"Game Theory","definition":"A modeling technique that accounts for strategic behavior of economic agents reacting to the actions of others."},
+{"concept":"Income Effect","definition":"A reaction of consumer's demand for goods or services due to changes in purchasing power holding relative prices constant (see substitition effect)."},
+{"concept":"Income Elasticity of Demand","definition":"A measure of sensitivity of quantity demanded to changes in consumer income."},
+{"concept":"Income-Neutral Good","definition":"A good where quantity demanded is unchanged when consumer income changes."},
+{"concept":"Increasing Returns to Scale (IRS)","definition":"A long run production concept where a doubling of all factor inputs more than doubles the amount of output."},
+{"concept":"Indifference Curve","definition":"A set of points that represent different bundles of goods which provide the consumer with the same level of satisfaction (or utility)."},
+{"concept":"Inferior Good","definition":"A good where quantity demanded decreases when consumer income increases (there is an inverse relationship between quantity demanded and income)."},
+{"concept":"Intermediate Goods and Services","definition":" Goods (or services) used to produce other goods (i.e., capital equipment)."},
+{"concept":"Lexicographic Preferences","definition":"Preferences that can be strictly ranked, usually applies in situations where only one good in a bundle is preferred by the consumer."},
+{"concept":"Long Run Production","definition":" Production activity where all factors of production may vary in quantity. The firm has the freedom to substitute among these factors or production in attempts to minimize costs."},
+{"concept":"Marginal Rate of Substitution","definition":"The rate by which a consumer may substitute a quantity of one good for another holding his/her level of utility constant."},
+{"concept":"Marginal Costs","definition":"The cost of producing one more unit of a good in the short run. A measure of the opportunity costs of the variable inputs in their next best use."},
+{"concept":"Marginal Utility","definition":"The satisfaction a consumer receives by consuming one more unit of some good or service."},
+{"concept":"Market","definition":"A place or institution where buyers and sellers come together and exchange factor inputs or final goods and services. A market is one particular type of economic rationing system."},
+{"concept":"Monopolistic Competition","definition":"A market structure similar to perfect competition in that there are a large number of firms competing in a given industry. However, each firm is selling a differentiated product and may exploit brand preferences such that is may act as a monopolist with respect to its own customers."},
+{"concept":"Monopoly","definition":"A market structure where only one firm exists in a given industry. This firm has a high degree of market power such that it is able to act as a price-maker with respect to market prices."},
+{"concept":"Needs","definition":"Goods and services essential for human survival."},
+{"concept":"Negotiation Space","definition":"A set of consumption bundles (points) relative to an initial or current endowment where one or all consumers can be made better off through trade without harming any other consumers."},
+{"concept":"Normal Good","definition":"A good where quantity demanded increases when consumer income increases (a direct relationship between quantity demanded and income)."},
+{"concept":"Oligopoly","definition":"A market structure with only a few firms in a given industry."},
+{"concept":"Opportunity Cost","definition":"The value of a resource applied to its next best use."},
+{"concept":"Pareto Improvement","definition":"A situation in exchange where one consumer is made better off by a trade without harming the other consumer."},
+{"concept":"Pareto Optimum","definition":"A situation where it is not possible to exchange goods or services without harming one of the agents involved."},
+{"concept":"Perfect Competition","definition":"A market structure where many firms exist, each with a small percentage of market share selling a homogeneous product. These firms are all price-takers with no influence on market price."},
+{"concept":"Price Elastic Demand","definition":"When the percentage change in quantity demanded exceeds the percentage change in market price."},
+{"concept":"Price Elasticity of Demand","definition":"A measure of sensitivity of quantity demanded to changes in market price."},
+{"concept":"Price Inelastic Demand","definition":"When the percentage change in quantity demanded is less than the percentage change in market price."},
+{"concept":"Unitary-elastic Demand","definition":"When the percentage change in quantity demanded is exactly equal to the percentage change in market price."},
+{"concept":"Producer","definition":"An economic agent that converts inputs(factors of production) into output (goods and services) with the goal of maximizing profits from production and sale of those goods and services."},
+{"concept":"Producer Optimum","definition":"A choice of input combinations or output levels that maximize the profits of a producer taking all prices as a given."},
+{"concept":"Producer's Surplus","definition":"The difference between revenue received and the variable costs of production for each unit of a commodity sold. Represents a contribution to fixed costs and producer profits."},
+{"concept":"Production Function","definition":"A technical relationship between a certain level of factor inputs and the corresponding level of output."},
+{"concept":"Production Possibilities Frontier","definition":"A relationship between two types of output defining the tradeoff that exists in allocating resources from production of one good to the other."},
+{"concept":"Profits","definition":"The difference between sales revenue and the costs of production."},
+{"concept":"Rationing Systems","definition":"A process used to match the desire for goods and services with their availability."},
+{"concept":"Relative Prices","definition":"A ratio of any two prices or one particular price compared to a price index."},
+{"concept":"Resources","definition":"The raw materials and other factors of production that enter the production process or final goods and services that are desired by economic agents."},
+{"concept":"Revenue The amount received by a producer from the sale of goods and services (the product of market price and quantity sold)."},
+{"concept":"Risk","definition":" A measure of uncertainty about the value of an asset or the benefits of some economic activity."},
+{"concept":"Satiation","definition":"A level of consumption where the consumer is fully satisfied in a given period of time."},
+{"concept":"Scarcity","definition":"A physical or economic condition where the quantity desired of a good or service exceeds the availability of that good or service in the absence of a rationing system."},
+{"concept":"Shortage","definition":"A market condition where the quantity demanded of a particular good or service exceed the quantity available."},
+{"concept":"Short Run Production","definition":"Production activity where only one factor of production may vary in quantity. All other factors of production are fixed in quantity. Substitution among factors is not possible."},
+{"concept":"Speculation","definition":" The purchase of a good or asset not intended for final consumption but rather in the expectation of future sale at some higher price."},
+{"concept":"Stock Variable","definition":" A variable measured at point in time."},
+{"concept":"Substitution Effect","definition":"The reaction of a consumer's demand for goods based on changes in relative prices holding purchasing power (or utility) constant (see Income Effect)."},
+{"concept":"Substitute Goods","definition":"A pair of goods where the quantity demanded of one increases when the price of a related good also increases."},
+{"concept":"Supply","definition":"A relationship between market price and quantities of goods and services made available for sale in a given period of time."},
+{"concept":"Surplus","definition":" A market condition where the quantity supplied of a particular commodity exceeds the quantity demanded."},
+{"concept":"Total Effect","definition":"The observed change in quantity demanded due to a price change of one particular good."},
+{"concept":"Transitive Preferences","definition":"A logical pattern of preferences where preference of one good over a second good and preference of the second good over a third good imply preference for the first good compared to the third good."},
+{"concept":"Unrelated Goods","definition":"A pair of goods where the quantity demand of one is unaffected by changes in the price of the other."},
+{"concept":"Utility","definition":"A measure of the satisfaction received from some type of economic activity (i.e., consumption of goods and services or the sale of factor services)."},
+{"concept":"Variable Costs of Production","definition":"Production costs related to changing quantities of a variable factor of production in the short run."},
+{"concept":"Wants","definition":"Preferences for goods and services over and above human needs."}]};
+</script>
+<style>
+problem_stem {display: block; height:50px; background: #c0c0c0;}
+ps {font-size: 14px; font-family: Arial; display:block; width: 90%; border-bottom: solid thick #c0c0c0; padding-bottom: 3px;}
+pd {font-size: 14px; font-family: Arial; display:block; padding-bottom: 1px;}
+button {display: inline-block; background: #c2e8ee; width: 40px; height: 30px; border: none; margin: 1px;}
+distractor {display: inline-block; background: #fffff; font-family: Arial; border-bottom: solid thin #cccccc; width:400px; padding-left: 5px; padding-bottom: 3px;}\n   
+</style>
+
+</head>
+<body onload = "next()">
+<p id="problem_stem"></p>
+<form name="mc">
+<span id= "distractor0"></span>
+<span id= "distractor1"></span>
+<span id= "distractor2"></span>
+<span id= "distractor3"></span>
+
+<p id = "result"></p>
+<span style="display: inline-block; width: 250px; text-align:center; background: #dedede;">
+<input type="button" value="Submit" onclick = "checkit()"/></span>
+<span style="display: inline-block; width: 200px; text-align:center; background: #dedede;">
+<input type="button" value="Next" onclick = "next()"/></span>
+<p id = "feedback"></p>
+</form>
+<script>
+function checkit() {
+  if (document.getElementById('dd0').checked) {
+    total_correct +=1;
+    document.getElementById("result").innerHTML = "<span style = \"color: #00bb00;\">Correct</span><br/><pd> (Total correct: "+total_correct+", Total incorrect: "+total_incorrect+")</pd>";
+  }
+  else {
+  if (document.getElementById('dd1').checked) {
+    document.getElementById("feedback").innerHTML = "<b>"+dx[1]+"</b>  <pd>"+cx[1]+"</pd>";
+  }
+  if (document.getElementById('dd2').checked) {
+    document.getElementById("feedback").innerHTML = "<b>"+dx[2]+"</b>  <pd>"+cx[2]+"</pd>";
+  }
+  if (document.getElementById('dd3').checked) {
+    document.getElementById("feedback").innerHTML = "<b>"+dx[3]+"</b>  <pd>"+cx[3]+"</pd>";
+  }
+  total_incorrect +=1;
+  document.getElementById("result").innerHTML = "<span style = \"color: #dd0000;\">Incorrect</span><br/><pd> (Total correct: "+total_correct+", Total incorrect: "+total_incorrect+")</pd>";
+  }
+}
+//
+function next() {
+  k=k+1;
+  if(k<80) {
+    document.getElementById("problem_stem").innerHTML = "<ps>"+k+". "+b_data.questions[k].definition+"</ps>";
+    dx[0] = b_data.questions[k].concept;
+  }
+  //
+  for (j=1;j<4;j++) { 
+    var nn = Math.round(Math.random()*80);
+    dx[j] = b_data.questions[nn].concept;
+    cx[j] = b_data.questions[nn].definition;
+  }
+  //
+  var ns = Math.round(Math.random()*8);
+  for (i=0;i<4;i++) {
+    document.getElementById("distractor"+i).innerHTML ="<button><input type = \"radio\" id =\"dd"+scramble[ns][i]+"\" name=\"distractor_x\" value = \""+scramble[ns][i]+"\" /></button><distractor>"+lbl[i]+" "+dx[scramble[ns][i]]+"</distractor><br/>";
+  }  
+  document.getElementById("result").innerHTML = "<i>(select an answer and press 'Submit')</i>";
+  document.getElementById("feedback").innerHTML = "";
+}
+</script>
+</body>
+</html>

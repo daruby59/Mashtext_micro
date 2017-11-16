@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>  
+  <head>  
+    <title>Microeconomic Theory</title>
+    <link rel="stylesheet" type="text/css" href="MT_1e.css" />
+    <script src = "ch_title_micro.js"></script>
+    <script src = "objects_micro.js"></script>
+    <script src = "concept_micro_revised.js"></script>
+    <script src = "readings_micro_revised.js"></script>
+     <script src = "practice_micro_revised.js"></script>
+    <script src = "lox.js"></script>
+    <script src = "MT_1e_housekeeping.js"></script>
+  </head>
+  
+<body onload="initx()" leftmargin="0" topmargin="0">
+  <form name="fin">
+  <table border="0" cellspacing="4" cellpadding="0" width="100%">
+ <tr>
+    <td align="center" bgcolor="#FFA500" width="190px;">
+    <input type = "button" name = "reset1" value = "Close all" onclick="resetx();"/>
+    </td>
+    <td width="2 px" bgcolor="#C30000">&#160;</td>
+    <td bgcolor="#0000A0" align="center"><span style = "color: #ffffff; font-family: Arial;"><b>Learning Objects</b></span></td>
+  </tr>
+  <tr >
+    <td align="center" height = "5px" bgcolor="#0000A3"></td>
+    <td width="2 px" height = "5px"bgcolor="#FFA500"></td>
+    <td bgcolor="#00A000" height = "5px"align="center"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#505050" valign="top">
+  <span onclick="changeme('chapters')" style = "cursor: pointer; "><x>Microeconomic Theory</x></span>
+  <span id = "chapters">
+  <script>
+    //
+    // 11-14-2017
+    //
+    var offset = 0;
+    var ch_offset = 0;
+    //
+    for (k=0;k<ch_count; k++) {
+       document.write("<span onclick=\"changeme(\'"+chx[k]+"\')\" style = \"cursor: pointer;\"><x>"+ch_title[k]+"</x></span>");
+       document.write("<span id = "+chx[k]+" style = \"display: block; background: white; \">");
+       for (i=0;i < lo_count[k];i++) {
+          j=i+offset;
+          document.write("<y><input type=checkbox name=\"rates\" size=4 onclick=\"initx()\"/>"+title_1[j]+"</y>");
+       }
+      document.write("</span>");
+      offset = offset + lo_count[k];
+    }
+    ch_offset=ch_offset+ch_count;
+   //
+  </script>
+</span>
+
+  </td>
+  <td style = "width: 3px; background: #AB00AB;">&nbsp;</td>
+  <td bgcolor="#fdfdfd" background = "paper.png" valign="top">
+  <script>
+    var lox = "";
+    for (i=0;i<lo_total;i++) {
+       //
+       document.write("<z1 id = "+sy[i]+">");
+       document.write("<y4><b>"+title_1[i]+"</b></y4>");
+       //  
+       // new code here
+       //
+       document.write("<y0  onclick=\"changeme(\'"+lox1[i]+"\')\" style = \"cursor: pointer;\"><b>Concept</b></y0>");
+       document.write("<y0a onclick=\"changeme(\'"+lox2[i]+"\')\" style = \"cursor: pointer;\"><b><i>Learn</i></b></y0a>");
+       document.write("<y0b onclick=\"changeme(\'"+lox3[i]+"\')\" style = \"cursor: pointer;\"><b>Practice</b></y0b>");
+       document.write("<y0d onclick=\"changeme(\'"+lox4[i]+"\')\" style = \"cursor: pointer;\"><b>Assess</b></y0d>");
+       //
+       //
+       //
+       document.write("<blockquote>");
+       document.write("<y3 id ="+lox1[i]+"><iframe src=\""+concept_1[i]+"\" seamless=\"seamless\"  height=\"450\" frameborder=\"0\"></iframe></y3>");
+       document.write("<y3 id ="+lox2[i]+"><iframe src=\""+reading_1[i]+"\" seamless=\"seamless\" height=\"600\" frameborder=\"0\"></iframe></y3>");
+       document.write("<y3 id ="+lox3[i]+"><center><iframe src=\""+practice_1[i]+"\" seamless=\"seamless\"  height=\"600\" frameborder=\"0\"></iframe></center></y3>");
+       document.write("<y3 id ="+lox4[i]+"><center><iframe src=\"micro_assess_json_milestone.html\" seamless=\"seamless\"  align = \"center\" height=\"350\" frameborder=\"0\"></iframe></center></y3>");
+       // 
+       document.write("</blockquote>");
+       document.write("</z1>");
+     }
+    </script>
+    </td>
+  </tr>
+  <tr>
+     <td bgcolor="#00A000" align = "center" height="32px">
+       <input type = "button" name = "reset2" value = "Close all" onclick="resetx();"/>
+     </td>
+     <td width="3px" bgcolor="#FFA500">&nbsp;</td>
+     <td bgcolor="#A00000" align="center">
+       <span style = "color: white; font-size: small; font-family: Arial;"><b>* v0.9, Copyright (c) 2017, dar *</b></span>
+     </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
